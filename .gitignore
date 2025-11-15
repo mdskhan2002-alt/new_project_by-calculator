@@ -1,18 +1,41 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+#include <stdio.h>
 
-# Other files and folders
-.settings/
+int main() {
+    float a, b;
+    char op;
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+    printf("Enter first number: ");
+    scanf("%f", &a);
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &op);
+
+    printf("Enter second number: ");
+    scanf("%f", &b);
+
+    switch(op) {
+        case '+':
+            printf("Result: %.2f\n", a + b);
+            break;
+
+        case '-':
+            printf("Result: %.2f\n", a - b);
+            break;
+
+        case '*':
+            printf("Result: %.2f\n", a * b);
+            break;
+
+        case '/':
+            if(b == 0)
+                printf("Error: Division by zero is not allowed!\n");
+            else
+                printf("Result: %.2f\n", a / b);
+            break;
+
+        default:
+            printf("Invalid operator!\n");
+    }
+
+    return 0;
+}
